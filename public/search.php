@@ -8,7 +8,7 @@
 
 require 'api_init.php';
 
-if (!empty($_POST['search'])
+if (!empty($_POST['therm'])
     && !empty($_POST['type'])
     && in_array($_POST['type'], $api_types)) {
     $cleaned = htmlentities($_POST['search']);

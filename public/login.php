@@ -6,11 +6,13 @@
  * Time: 17:24
  */
 ?>
+
 <div class="container-fluid title">
     <img src="logo.png" alt="logo" class="logo"/>
-    <p>Votre médiathèque personnelle</p>
+    <p>--- Votre médiathèque personnelle ---</p>
 </div>
-<div class="container">
+
+<div class="container login">
     <form action="" method="post">
         <fieldset class="form-group">
             <legend>CONNEXION</legend>
@@ -18,19 +20,16 @@
                    placeholder="Entrer votre nom d'utilisateur" value=""/>
             <input type="password" class="form-control" name="password" id="password"
                    placeholder="Entrer votre mot de passe"  value=""/>
-            <button type="submit" class="btn btn-success">Se connecter</button>
+            <button type="submit" class="btn">Se connecter</button>
         </fieldset>
     </form>
-</div>
-
-<div class="container">
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
                 <h4 class="panel-title">
                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         <fieldset class="form-group">
-                            <legend>INSCRIPTION</legend>
+                            <legend class="inscription">INSCRIPTION</legend>
                         </fieldset>
                     </a>
                 </h4>
@@ -43,7 +42,7 @@
                                    placeholder="Entrer un nom d'utilisateur" value=""/>
                             <input type="password" class="form-control" name="passwordInscription" id="passwordInscription"
                                    placeholder="Entrer un mot de passe"  value=""/>
-                            <button type="submit" class="btn btn-success">S'inscrire</button>
+                            <button type="submit" class="btn">S'inscrire</button>
                         </fieldset>
                     </form>
                 </div>

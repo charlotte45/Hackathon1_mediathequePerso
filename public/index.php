@@ -6,10 +6,28 @@
  * Time: 16:38
  */
 include 'header.php';
-include 'login.php';
+
 ?>
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-12"><h1 class="bibliotheque">Ma Médiathèque</h1>
+        </div>
+    </div>
 
+    <div class="row">
+        <div class="col-md-6"><img src="assets/images/livres.png" alt="Livres" class="img-responsive" />
+        </div>
+        <div class="col-md-6"><img src="assets/images/casque.png" alt="Musique" class="img-responsive" />
+        </div>
+    </div>
+    <div class="row vignette">
+        <div class="col-md-6"><img src="assets/images/video.png" alt="Film" class="img-responsive" />
+        </div>
+        <div class="col-md-6"><img src="assets/images/manette.png" alt="Jeux" class="img-responsive" />
+        </div>
+    </div>
+</div>
 
 
 

@@ -12,12 +12,49 @@
 
 .title p {
     font-size: 2vw;
-    color: black;
+    color: white;
+    text-align: center;
+    margin-bottom: 60px;
+    font-family: 'Open Sans', sans-serif;
 }
 
+.login {
+    width: 750px;
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+}
 
+.login .panel-heading {
+    padding: 0;
+}
 
+.login .panel-default {
+    border-color: transparent;
+}
 
+.login .form-group {
+    margin-bottom: 0;
+}
+
+.login .panel-body {
+    padding: 0;
+}
+
+.login .panel-default > .panel-heading {
+    color: transparent;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.login input {
+    margin-bottom: 20px;
+}
+
+.login .panel-group {
+    margin-top: 30px;
+}
 
 /*-*-*-*-* index.php *-*-*-*-*/
 
@@ -60,6 +97,11 @@ body {
 
 .navbar-default .navbar-nav>li>a {
     color: white;
+}
+
+
+.login .inscription:hover {
+    color: purple;
 }
 
 

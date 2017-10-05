@@ -13,6 +13,10 @@ class ComposerStaticInit4ba832b291eddf51c1e4097d897aed93
     );
 
     public static $prefixLengthsPsr4 = array (
+        'W' => 
+        array (
+            'Wcs\\' => 4,
+        ),
         'P' => 
         array (
             'Psr\\Http\\Message\\' => 17,
@@ -26,6 +30,10 @@ class ComposerStaticInit4ba832b291eddf51c1e4097d897aed93
     );
 
     public static $prefixDirsPsr4 = array (
+        'Wcs\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',

@@ -1,0 +1,77 @@
+/*-*-*-*-* START CSS *-*-*-*-*/
+
+/*-*-*-*-* EN CSS *-*-*-*-*/
+
+.title p {
+    font-size: 2vw;
+    color: white;
+    text-align: center;
+    margin-bottom: 60px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.login {
+    width: 750px;
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+}
+
+.login .panel-heading {
+    padding: 0;
+}
+
+.login .panel-default {
+    border-color: transparent;
+}
+
+.login .form-group {
+    margin-bottom: 0;
+}
+
+.login .panel-body {
+    padding: 0;
+}
+
+.login .panel-default > .panel-heading {
+    color: transparent;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.login input {
+    margin-bottom: 20px;
+}
+
+.login .panel-group {
+    margin-top: 30px;
+}
+
+.login .inscription:hover {
+    color: purple;
+}
+
+/*-*-*-*-* START MEDIA QUERIES *-*-*-*-*/
+
+@media screen and (max-width: 767px){ /* COL-XS */ 
+
+
+}
+
+@media screen and (min-width: 768px) AND (max-width: 991px){ /* COL-SM */ 
+
+
+}
+
+@media screen and (min-width: 992px) AND (max-width: 1199px){ /* COL-MD */
+
+
+}
+
+@media screen and (min-width: 1200px) { /* MEDIA FOR COL-LG */
+
+
+}
+
+/*-*-*-*-* END MEDIA QUERIES *-*-*-*-*/

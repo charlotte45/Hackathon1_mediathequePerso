@@ -6,44 +6,12 @@
  * Time: 16:38
  */
 include 'header.php';
-include 'login.php';
 ?>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <?php
-        include 'footer.php';
-        ?>
+<?php
+include 'footer.php';
+?>
 
     </body>
 </html>

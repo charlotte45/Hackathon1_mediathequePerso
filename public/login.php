@@ -5,11 +5,12 @@
  * Date: 05/10/17
  * Time: 17:24
  */
+include 'header.php'
 ?>
 
 <div class="container-fluid title">
     <img src="logo.png" alt="logo" class="logo"/>
-    <p>--- Votre médiathèque personnelle ---</p>
+    <h1>--- Votre médiathèque personnelle ---</h1>
 </div>
 
 <div class="container login">
@@ -50,3 +51,6 @@
         </div>
     </div>
 </div>
+
+<?php
+include 'footer.php';

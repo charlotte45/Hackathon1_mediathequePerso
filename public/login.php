@@ -12,8 +12,29 @@
     $pdo = new PDO(DSN, USER,PASS);
 ?>
 
+    <!DOCTYPE html>
+    <html lang="fr">
+        <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+            <meta name="description" content="Page Index">
+            <title>WildFlix</title>
+
+            <!-- Bootstrap core CSS -->
+            <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
+            <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+            <!-- Font Awesome -->
+            <link href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+            <!-- Custom styles for this template -->
+            <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+        </head>
+
 <div class="container-fluid title">
-    <img src="assets/images/wildflix.png" alt="logo" class="logo" class="img-responsive"/>
+    <img src="assets/images/wildflix.png" alt="logo" class="logo img-responsive center-block" height="20%" width="20%"/>
     <p>--- Votre médiathèque personnelle ---</p>
 </div>
 
@@ -89,3 +110,7 @@
         </div>
     </div>
 </div>
+
+<?php
+include 'footer.php';
+?>

@@ -5,12 +5,11 @@
  * Date: 05/10/17
  * Time: 17:24
  */
-include 'header.php'
-?>
-<?php
-    require 'connect.php';
-    //Connection
-    $pdo = new PDO(DSN, USER,PASS);
+include 'header.php';
+require 'connect.php';
+//Connection
+$pdo = new PDO(DSN, USER,PASS);
+
 ?>
 
 <div class="container-fluid title">

@@ -13,4 +13,9 @@ if (!empty($_GET['search'])) {
     $results = $api_games->search($cleaned);
 
     var_dump($results);
+} else if (!empty($_GET['id'])) {
+    $cleaned = cleanVar($_GET['id']);
+    $results = $api_games->getInfosFromID($cleaned);
+
+    var_dump($results);
 }

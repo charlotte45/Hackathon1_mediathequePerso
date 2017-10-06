@@ -16,10 +16,16 @@ $api_games = new API('https://api-2445582011268.apicast.io', NULL, NULL, $games_
 $api_musics = new API('http://ws.audioscrobbler.com/2.0/', 'd89820b9a2dbc5f5a70259c5b25f5704', 'api_key');
 $api_movies = new API('http://api.betaseries.com/', '34a52cff97b5', 'key');
 //$books_headers = [ 'Accept' => 'application/json'];
-$api_books = new API('http://openlibrary.org/api/', NULL, NULL);
+$api_books = new API('http://openlibrary.org/api/');
 
 // prepare search urls
 $api_games->setSearchUri('/games/?search=%THERM%&fields=*');
 $api_musics->setSearchUri('?method=track.search&track=%THERM%');
-$api_movies->setSearchUri('/search/all?query=%THERM%&limit=15');
-$api_books->setSearchUri('/search.json?q=%THERM%');
+$api_movies->setSearchUri('search/all?query=%THERM%&limit=15');
+$api_books->setSearchUri('search.json?q=%THERM%');
+
+// prepare get urls from theirs id
+$api_games->setGetUriFromId('/games/?id=%ID%&fields=*');
+$api_musics->setGetUriFromId('?method=track.getInfo&mbid=%ID%');
+$api_movies->setGetUriFromId('movies/movie?id=%ID%');
+$api_books->setGetUriFromId('&bibkeys=%ID%');

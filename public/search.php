@@ -15,23 +15,19 @@ if (!empty($_POST['therm'])
     $cleaned = htmlentities($_POST['therm']);
     switch ($_POST['type']) {
         case 'books':
-            echo 'books';
             header('Location: books.php?search=' . $cleaned);
             break;
         case 'games':
-            echo 'games';
             header('Location: games.php?search=' . $cleaned);
-            exit;
             break;
         case 'musics':
-            echo 'musics';
             header('Location: movies.php?search=' . $cleaned);
             break;
         case 'movies':
-            echo 'movies';
             header('Location: musics.php?search=' . $cleaned);
             break;
     }
-    echo 'flouz';
+
+    header('Location: index.php');
     exit;
 }

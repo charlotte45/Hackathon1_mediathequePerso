@@ -13,4 +13,9 @@ if (!empty($_POST['search'])) {
     $results = $api_books->search($cleaned);
 
     var_dump($results);
+} else if (!empty($_GET['id'])) {
+    $cleaned = cleanVar($_GET['id']);
+    $results = $api_books->getInfosFromID($cleaned);
+
+    var_dump($results);
 }

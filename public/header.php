@@ -5,6 +5,8 @@
  * Date: 05/10/17
  * Time: 16:39
  */
+
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +61,7 @@
                     </form>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Steven</a></li>
+                        <li><a href="#"><?= $_SESSION['user'] ?></a></li>
                         <li><a href="#">Se déconnecter</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->

@@ -51,10 +51,10 @@ if (empty($results)) {
             <div class="col-xs-6 col-md-3">
                 <a href="#">
                     <figure class="thumbnail">
-                        <img src="<?= $obj->poster ?>" class="image">
+                        <img src="<?= property_exists($obj, 'poster') ? $obj->poster : '' ?>" class="image">
                         <figcaption class="caption">
-                            <p class="text-center"><?= $obj->title ?></p>
-                            <p class="text"><?= $obj->synopsis ?></p>
+                            <p class="text-center"><?= property_exists($obj, 'title') ? $obj->title : '' ?></p>
+                            <p class="text"><?= property_exists($obj, 'title') ? $obj->synopsis : '' ?></p>
                             <div>
                                 <form action="" method="post" class="formThumbnail">
                                     <input type="hidden" name="id" value="id"/>

@@ -53,8 +53,8 @@ if (empty($results)) {
                     <figure class="thumbnail">
                         <img src="assets/images/livres.png" class="image">
                         <figcaption class="caption">
-                            <p class="text-center"><?= $obj->title ?></p>
-                            <p class="text"><?= $obj->summary ?></p>
+                            <p class="text-center"><?= property_exists($obj, 'title') ? $obj->title : '' ?></p>
+                            <p class="text"><?= property_exists($obj, 'summary') ? $obj->summary : '' ?></p>
                             <div>
                                 <form action="" method="post" class="formThumbnail">
                                     <input type="hidden" name="id" value="id"/>

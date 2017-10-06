@@ -26,7 +26,7 @@ $api_movies->setSearchUri('movies/search?title=%THERM%');
 $api_books->setSearchUri('/search.json?q=%THERM%&jscmd=data');
 
 // prepare get urls from theirs id
-$api_games->setGetUriFromId('/games/?id=%ID%&fields=*');
+$api_games->setGetUriFromId('/games/%ID%?fields=*');
 $api_musics->setGetUriFromId('?method=track.getInfo&id=%ID%');
 $api_movies->setGetUriFromId('movies/movie?id=%ID%');
 $api_books->setGetUriFromId('/books?bibkeys=%ID%&jscmd=data&format=json');

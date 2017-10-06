@@ -14,17 +14,12 @@ require_once '../src/functions.php';
 $search = false;
 $results = '';
 if (!empty($_GET['search'])) {
-    $cleaned = htmlentities($_GET['search']);
+    $cleaned = cleanVar($_GET['search']);
     $results = $api_games->search($cleaned);
     $search = true;
-
-    //var_dump($results);
-    //var_dump($results);
 } else if (!empty($_GET['id'])) {
     $cleaned = cleanVar($_GET['id']);
     $results = $api_games->getInfosFromID($cleaned);
-
-    var_dump($results);
 }
 
 if (empty($results)) {
@@ -50,12 +45,12 @@ if (empty($results)) {
                 <div class="row">
             <?php endif; ?>
             <div class="col-xs-6 col-md-3">
-                <a href="#">
+                <a href="games.php?id=<?= property_exists($obj, 'id') ? $obj->id : ''?>">
                     <figure class="thumbnail">
-                        <img src="<?= $obj->cover->url ?>" class="image">
+                        <img src="<?= property_exists($obj, 'cover') ? $obj->cover->url : '' ?>" class="image">
                         <figcaption class="caption">
-                            <p class="text-center"><?= $obj->name ?></p>
-                            <p class="text"><?= $obj->summary ?></p>
+                            <p class="text-center"><?= property_exists($obj, 'name') ? $obj->name : '' ?></p>
+                            <p class="text"><?= property_exists($obj, 'summary') ? $obj->summary : '' ?></p>
                             <div>
                                 <form action="" method="post" class="formThumbnail">
                                     <input type="hidden" name="id" value="id"/>

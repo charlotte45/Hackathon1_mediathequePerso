@@ -6,6 +6,8 @@
  * Time: 17:24
  */
 
+session_start();
+
 require 'connect.php';
 //Connection
 //$pdo = new PDO(DSN, USER,PASS);
@@ -25,9 +27,8 @@ if (!empty($_POST['user'])) {
     foreach ($result as $value) {
         if ($value['identifier'] == $userName
             && $value['password'] == $userPass) {
+            $_SESSION['user'] = $userName;
             header('Location: index.php');
-
-            // TODO: Connecter à la session
         }
     }
 } else if (!empty($_POST['new_user']) && !empty($_POST['new_password'])) {
@@ -41,7 +42,7 @@ if (!empty($_POST['user'])) {
     $sql = "INSERT INTO user (identifier, password) VALUES ('$userName', '$userPass')";
     $newRow = $pdo->exec($sql);
 
-    // TODO: Connecter à la session
+    $_SESSION['user'] = $userName;
 }
 ?>
 

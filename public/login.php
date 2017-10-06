@@ -8,8 +8,41 @@
 
 require 'connect.php';
 //Connection
-$pdo = new PDO(DSN, USER,PASS);
+//$pdo = new PDO(DSN, USER,PASS);
 
+if (!empty($_POST['user'])) {
+    $userName = $_POST['user'];
+    $userPass = $_POST['password'];
+
+    $query = 'SELECT * FROM user WHERE identifier=:identifier AND password=:password;';
+    $prep = $pdo->prepare($query);
+    $prep->bindValue(':identifier', $userName);
+    $prep->bindValue(':password', $userPass);
+    $prep->execute();
+
+    $result = $prep->fetchAll();
+
+    foreach ($result as $value) {
+        if ($value['identifier'] == $userName
+            && $value['password'] == $userPass) {
+            header('Location: index.php');
+
+            // TODO: Connecter à la session
+        }
+    }
+} else if (!empty($_POST['new_user']) && !empty($_POST['new_password'])) {
+    $userName = $_POST['new_user'];
+    $userPass = $_POST['new_password'];
+
+    $query = "SELECT * FROM user WHERE identifier LIKE 'A%' AND password LIKE 'A%';";
+    $prep = $pdo->query($query);
+    $result = $prep->fetchAll();
+
+    $sql = "INSERT INTO user (identifier, password) VALUES ('$userName', '$userPass')";
+    $newRow = $pdo->exec($sql);
+
+    // TODO: Connecter à la session
+}
 ?>
 
     <!DOCTYPE html>
@@ -34,8 +67,8 @@ $pdo = new PDO(DSN, USER,PASS);
         </head>
 
 <div class="container-fluid title">
-    <h1>--- Votre médiathèque personnelle ---</h1>
     <img src="assets/images/wildflix.png" alt="logo" class="logo img-responsive center-block" height="20%" width="20%"/>
+    <h1>--- Votre médiathèque personnelle ---</h1>
 </div>
 
 <div class="container login">
@@ -49,27 +82,6 @@ $pdo = new PDO(DSN, USER,PASS);
             <button type="submit" class="btn">Se connecter</button>
         </fieldset>
     </form>
-    <?php
-    if (!empty($_POST['user'])) {
-        $userName = $_POST['user'];
-        $userPass = $_POST['password'];
-
-        $query = 'SELECT * FROM user WHERE identifier=:identifier AND password=:password;';
-        $prep = $pdo->prepare($query);
-        $prep->bindValue(':identifier', $userName);
-        $prep->bindValue(':password', $userPass);
-        $prep->execute();
-
-        $result = $prep->fetchAll();
-
-        foreach ($result as $value) {
-            if ($value['identifier'] == $userName
-                && $value['password'] == $userPass) {
-                header('Location: index.php');
-            }
-        }
-    }
-?>
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
@@ -92,18 +104,6 @@ $pdo = new PDO(DSN, USER,PASS);
                             <button type="submit" class="btn">S'inscrire</button>
                         </fieldset>
                     </form>
-                    <?php
-
-                        $userName = $_POST['new_user'];
-                        $userPass = $_POST['new_password'];
-
-                        $query = "SELECT * FROM user WHERE identifier LIKE 'A%' AND password LIKE 'A%';";
-                        $prep = $pdo->query($query);
-                        $result = $prep->fetchAll();
-
-                        $sql = "INSERT INTO user ('identifier', 'password') VALUES ('$userName', '$userPass')";
-                        $newRow = $pdo->exec($sql);
-                    ?>
                 </div>
             </div>
         </div>
@@ -112,3 +112,4 @@ $pdo = new PDO(DSN, USER,PASS);
 
 <?php
 include 'footer.php';
+?>

@@ -21,8 +21,8 @@ $api_books = new API('http://openlibrary.org/api/');
 // prepare search urls
 $api_games->setSearchUri('/games/?search=%THERM%&fields=*');
 $api_musics->setSearchUri('?method=track.search&track=%THERM%');
-$api_movies->setSearchUri('search/all?query=%THERM%&limit=15');
-$api_books->setSearchUri('search.json?q=%THERM%');
+$api_movies->setSearchUri('/search/all?query=%THERM%&limit=12');
+$api_books->setSearchUri('/search.json?q=%THERM%&jscmd=data');
 
 // prepare get urls from theirs id
 $api_games->setGetUriFromId('/games/?id=%ID%&fields=*');

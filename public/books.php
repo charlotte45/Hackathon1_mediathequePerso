@@ -1,19 +1,22 @@
 <?php
 /**
- * Created by PhpStorm.
-<<<<<<< HEAD
+ * Created by PhpStorm
  * User: wilder4
  * Date: 06/10/17
  * Time: 00:39
  */
+
 include 'header.php';
 
 require_once 'api_init.php';
 require_once '../src/functions.php';
 
-if (!empty($_POST['search'])) {
-    $cleaned = htmlentities($_POST['search']);
+$search = false;
+$results = '';
+if (!empty($_GET['search'])) {
+    $cleaned = cleanVar($_GET['search']);
     $results = $api_books->search($cleaned);
+    $search = true;
 
     var_dump($results);
 } else if (!empty($_GET['id'])) {
@@ -22,20 +25,36 @@ if (!empty($_POST['search'])) {
 
     var_dump($results);
 }
-?>
 
-<div class="container category">
-    <h1>Mes livres</h1>
-        <div class="row">
+if (empty($results)) {
+    if ($search) {
+// TODO: Metre un message 'pas de résultats pour la recherche' en html
+    } else {
+// TODO: Metre un message 'pas de résultats dans votre bibliothèque' en html
+    }
+} else {
+    echo 'bb4obs';
+    ?>
+    <div class="container category">
+        <?php if ($search) : ?>
+            <h1>Résultat(s) des livres</h1>
+        <?php else : ?>
+            <h1>Mes livres</h1>
+        <?php endif; ?>
+        <?php
+        $total = 12;
+        $count = 0;
+        foreach ($results->docs as $obj) :
+            if ($count == 0) : ?>
+                <div class="row">
+            <?php endif; ?>
             <div class="col-xs-6 col-md-3">
                 <figure class="thumbnail">
-                    <img src="..." class="image">
+                    <img src="<?= $obj->cover->url ?>" class="image">
                     <figcaption class="caption">
-                        <p>titre</p>
-                        <p>auteur</p>
-                        <p>édition</p>
-                        <p>genre</p>
-                        <p>
+                        <p class="text-center"><?= $obj->title ?></p>
+                        <p><?= $obj->summary ?></p>
+                        <div>
                             <form action="" method="post" class="formThumbnail">
                                 <input type="hidden" name="id" value="id"/>
                                 <input type="hidden" name="state" value="1"/>
@@ -46,13 +65,24 @@ if (!empty($_POST['search'])) {
                                 <input type="hidden" name="state" value="2"/>
                                 <button type="submit" class="btn btn-danger">Je veux</button>
                             </form>
-                        </p>
+                        </div>
                     </figcaption>
                 </figure>
             </div>
-        </div>
-</div>
-
-<?php
+            <?php
+            $count++;
+            $total--;
+            if ($count == 3) : ?>
+                </div>
+                <?php
+                $count = 0;
+            endif;
+            if ($total == 0) {
+                break;
+            }
+        endforeach; ?>
+    </div>
+    <?php
+}
 include 'footer.php';
 ?>

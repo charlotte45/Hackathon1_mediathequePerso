@@ -16,15 +16,19 @@ if (!empty($_POST['therm'])
     switch ($_POST['type']) {
         case 'books':
             header('Location: books.php?search=' . $cleaned);
+            exit;
             break;
         case 'games':
             header('Location: games.php?search=' . $cleaned);
+            exit;
             break;
         case 'musics':
-            header('Location: movies.php?search=' . $cleaned);
+            header('Location: musics.php?search=' . $cleaned);
+            exit;
             break;
         case 'movies':
-            header('Location: musics.php?search=' . $cleaned);
+            header('Location: movies.php?search=' . $cleaned);
+            exit;
             break;
     }
 

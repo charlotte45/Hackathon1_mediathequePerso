@@ -45,7 +45,7 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
-                    <form class="navbar-form navbar-left">
+                    <form method="post" action="search.php" class="navbar-form navbar-left">
                         <div class="form-group">
                             <input type="text" name="therm" class="form-control" placeholder="Recherche">
                             <select class="form-control" name="type">

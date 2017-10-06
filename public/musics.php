@@ -7,10 +7,16 @@
  */
 
 require_once 'api_init.php';
+require_once '../src/functions.php';
 
-if (!empty($_POST['search'])) {
-    $cleaned = htmlentities($_POST['search']);
+if (!empty($_GET['search'])) {
+    $cleaned = htmlentities($_GET['search']);
     $results = $api_musics->search($cleaned);
+
+    var_dump($results);
+} else if (!empty($_GET['id'])) {
+    $cleaned = cleanVar($_GET['id']);
+    $results = $api_musics->getInfosFromID($cleaned);
 
     var_dump($results);
 }

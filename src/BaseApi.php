@@ -20,6 +20,7 @@ class BaseApi
     private $client;
     private $headers = NULL;
     private $searchUri = '';
+    private $getUriFromId = '';
 
     public function __construct(string $base_uri, string $api_key = NULL, string $apikey_name = NULL, array $headers = NULL)
     {
@@ -86,9 +87,23 @@ class BaseApi
         $this->searchUri = $searchUri;
     }
 
+    /**
+     * @param string $getUriFromId
+     */
+    public function setGetUriFromId(string $getUriFromId)
+    {
+        $this->getUriFromId = $getUriFromId;
+    }
+
     public function search($therm)
     {
         $finalUri = str_replace('%THERM%', $therm, $this->searchUri);
+        return $this->sendRequest('GET', $finalUri);
+    }
+
+    public function getInfosFromID(string  $id)
+    {
+        $finalUri = str_replace('%ID%', $id, $this->getUriFromId);
         return $this->sendRequest('GET', $finalUri);
     }
 }

@@ -6,6 +6,11 @@
  * Time: 17:24
  */
 ?>
+<?php
+    require 'connect.php';
+    //Connection
+    $pdo = new PDO(DSN, USER,PASS);
+?>
 
 <div class="container-fluid title">
     <img src="assets/images/wildflix.png" alt="logo" class="logo" class="img-responsive"/>
@@ -23,6 +28,28 @@
             <button type="submit" class="btn">Se connecter</button>
         </fieldset>
     </form>
+    <?php
+    if (!empty($_POST['user'])) {
+
+    }
+    $userName = $_POST['user'];
+    $userPass = $_POST['password'];
+
+    $query = 'SELECT * FROM user WHERE identifier=:identifier AND password=:password;';
+    $prep = $pdo->prepare($query);
+    $prep->bindValue(':identifier', $userName);
+    $prep->bindValue(':password', $userPass);
+    $prep->execute();
+
+    $result = $prep->fetchAll();
+
+    foreach ($result as $value) {
+        if ($value['identifier'] == $userName
+            && $value['password'] == $userPass) {
+            header('Location: index.php');
+        }
+    } 
+?>
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         <div class="panel panel-default">
             <div class="panel-heading" role="tab" id="headingOne">
@@ -45,6 +72,18 @@
                             <button type="submit" class="btn">S'inscrire</button>
                         </fieldset>
                     </form>
+                    <?php
+
+                        $userName = $_POST['new_user'];
+                        $userPass = $_POST['new_password'];
+
+                        $query = "SELECT * FROM user WHERE identifier LIKE 'A%' AND password LIKE 'A%';";
+                        $prep = $pdo->query($query);
+                        $result = $prep->fetchAll();
+
+                        $sql = "INSERT INTO user ('identifier', 'password') VALUES ('$userName', '$userPass')";
+                        $newRow = $pdo->exec($sql);
+                    ?>
                 </div>
             </div>
         </div>

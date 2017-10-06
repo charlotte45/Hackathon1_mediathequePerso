@@ -1,5 +1,13 @@
 /*-*-*-*-* START CSS *-*-*-*-*/
 
+@font-face {
+    font-family: 'dolce';
+    src: url('../fonts/dolce.ttf') format('eot'),
+    url('../fonts/dolce.woff') format('woff'),
+    url('../fonts/dolce.woff2') format('woff2');
+    }
+
+
 /*-*-*-*-* EN CSS *-*-*-*-*/
 
 .title h1 {
@@ -46,6 +54,45 @@
 
 .login .panel-group {
     margin-top: 30px;
+}
+
+/*-*-*-*-* index.php *-*-*-*-*/
+
+body {
+
+    margin:0;
+    padding:0;
+    background: url(../images/background.jpeg) no-repeat center fixed;
+    -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+    background-size: cover; /* version standardisée */
+}
+
+.vignette{
+    margin-top: 30px;
+}
+
+.bibliotheque{
+    text-align: center;
+    color: white;
+    padding-bottom: 20px;
+    font-family: "Open Sans", sans-serif;
+}
+
+/*-*-*-*-* NAVBAR HEADER *-*-*-*-*/
+.navbar {
+    background-color: transparent;
+    background: transparent;
+    border-color: transparent;
+
+}
+
+.navbar-brand {
+    font-family: 'dolce';
+    font-size: 3em;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
 }
 
 .login .inscription:hover {

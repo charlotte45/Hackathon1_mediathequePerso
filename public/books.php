@@ -1,11 +1,27 @@
 <?php
 /**
  * Created by PhpStorm.
+<<<<<<< HEAD
  * User: wilder4
  * Date: 06/10/17
  * Time: 00:39
  */
 include 'header.php';
+
+require_once 'api_init.php';
+require_once '../src/functions.php';
+
+if (!empty($_POST['search'])) {
+    $cleaned = htmlentities($_POST['search']);
+    $results = $api_books->search($cleaned);
+
+    var_dump($results);
+} else if (!empty($_GET['id'])) {
+    $cleaned = cleanVar($_GET['id']);
+    $results = $api_books->getInfosFromID($cleaned);
+
+    var_dump($results);
+}
 ?>
 
 <div class="container category">

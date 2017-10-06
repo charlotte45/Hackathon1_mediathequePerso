@@ -8,7 +8,7 @@
 ?>
 
 <div class="container-fluid title">
-    <img src="logo.png" alt="logo" class="logo"/>
+    <img src="assets/images/wildflix.png" alt="logo" class="logo" class="img-responsive"/>
     <p>--- Votre médiathèque personnelle ---</p>
 </div>
 

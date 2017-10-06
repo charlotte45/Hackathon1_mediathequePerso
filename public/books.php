@@ -17,8 +17,6 @@ if (!empty($_GET['search'])) {
     $cleaned = cleanVar($_GET['search']);
     $results = $api_books->search($cleaned);
     $search = true;
-
-    var_dump($results);
 } else if (!empty($_GET['id'])) {
     $cleaned = cleanVar($_GET['id']);
     $results = $api_books->getInfosFromID($cleaned);

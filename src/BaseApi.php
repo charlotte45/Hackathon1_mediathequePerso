@@ -5,6 +5,7 @@
  * Date: 05/10/17
  * Time: 15:52
  */
+
 namespace Wcs;
 
 use GuzzleHttp\Client;

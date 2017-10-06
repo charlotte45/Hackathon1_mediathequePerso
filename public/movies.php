@@ -19,8 +19,6 @@ if (!empty($_GET['search'])) {
     $results = $api_movies->search($cleaned);
     $search = true;
     $results = $results->movies;
-
-    var_dump($results);
 } else if (!empty($_GET['id'])) {
     $cleaned = cleanVar($_GET['id']);
     $results = $api_movies->getInfosFromID($cleaned);
@@ -50,10 +48,10 @@ if (empty($results)) {
             <?php endif; ?>
             <div class="col-xs-6 col-md-3">
                 <figure class="thumbnail">
-                    <img src="<?= $obj->cover->url ?>" class="image">
+                    <img src="<?= $obj->poster ?>" class="image">
                     <figcaption class="caption">
-                        <p class="text-center"><?= $obj->name ?></p>
-                        <p><?= $obj->summary ?></p>
+                        <p class="text-center"><?= $obj->title ?></p>
+                        <p><?= $obj->synopsis ?></p>
                         <div>
                             <form action="" method="post" class="formThumbnail">
                                 <input type="hidden" name="id" value="id"/>

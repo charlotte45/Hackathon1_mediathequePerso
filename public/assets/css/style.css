@@ -56,6 +56,9 @@
     margin-top: 30px;
 }
 
+.hoverPink:hover {
+    background-color: #f5bbd4;
+}
 /*-*-*-*-* index.php *-*-*-*-*/
 
 body {
@@ -109,6 +112,14 @@ body {
     color: white;
 }
 
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+    color: rgb(86, 115, 154);
+}
+
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+    color: #f5bbd4;
+}
+
 .btn-default {
     border: none;
     background-color: gainsboro;
@@ -129,14 +140,21 @@ body {
     margin-bottom: 60px;
     color: white;
 }
+
 .btn-danger {
     border-radius: 15px;
     border: none;
     background-color: rgb(86, 115, 154);
+    position: absolute;
+    bottom: 5px;
+}
+
+.want {
+    right: 8px;
 }
 
 .btn-danger:hover {
-    background-color: rgb(150, 131, 236);
+    background-color: #f5bbd4;
 }
 
 .thumbnail {
@@ -147,7 +165,8 @@ body {
 
 .thumbnail .caption {
     color: white;
-    height: 200px;
+    height: 230px;
+    position: relative;
 }
 
 .thumbnail .text {

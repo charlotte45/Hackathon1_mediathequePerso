@@ -44,7 +44,7 @@ if (empty($results)) {
         $total = 12;
         $count = 0;
         foreach ($results->docs as $obj) :
-            $state = getStateFromIds($pdo, $obj->id, 1);
+            //$state = getStateFromIds($pdo, $obj->id, 1);
             if ($count == 0) : ?>
                 <div class="row">
             <?php endif; ?>

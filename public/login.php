@@ -10,7 +10,7 @@ session_start();
 
 require 'connect.php';
 //Connection
-//$pdo = new PDO(DSN, USER,PASS);
+$pdo = new PDO(DSN, USER,PASS);
 
 if (!empty($_POST['user'])) {
     $userName = $_POST['user'];

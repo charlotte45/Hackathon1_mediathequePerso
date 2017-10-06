@@ -11,19 +11,27 @@ require 'api_init.php';
 if (!empty($_POST['therm'])
     && !empty($_POST['type'])
     && in_array($_POST['type'], $api_types)) {
-    $cleaned = htmlentities($_POST['search']);
+    echo 'here';
+    $cleaned = htmlentities($_POST['therm']);
     switch ($_POST['type']) {
         case 'books':
-            header('Location books.php?search=' . $cleaned);
+            echo 'books';
+            header('Location: books.php?search=' . $cleaned);
             break;
         case 'games':
-            header('Location games.php?search=' . $cleaned);
+            echo 'games';
+            header('Location: games.php?search=' . $cleaned);
+            exit;
             break;
         case 'musics':
-            header('Location movies.php?search=' . $cleaned);
+            echo 'musics';
+            header('Location: movies.php?search=' . $cleaned);
             break;
         case 'movies':
-            header('Location musics.php?search=' . $cleaned);
+            echo 'movies';
+            header('Location: musics.php?search=' . $cleaned);
             break;
     }
+    echo 'flouz';
+    exit;
 }

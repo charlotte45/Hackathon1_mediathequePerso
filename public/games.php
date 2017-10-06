@@ -29,9 +29,11 @@ if (!empty($_GET['search'])) {
 
 if (empty($results)) {
     if ($search) {
-        // TODO: Metre un message 'pas de résultats pour la recherche' en html
+        ?><p class="annonce">Il n'y a aucun résultat pour votre recherche.</p>
+        <?php
     } else {
-        // TODO: Metre un message 'pas de résultats dans votre bibliothèque' en html
+        ?><p class="annonce">Vous n'avez pas encore ajouté d'éléments à cette catégorie.</p>
+        <?php
     }
 } else {
     ?>
@@ -48,29 +50,31 @@ if (empty($results)) {
                 <div class="row">
             <?php endif; ?>
             <div class="col-xs-6 col-md-3">
-                <figure class="thumbnail">
-                    <img src="<?= $obj->cover->url ?>" class="image">
-                    <figcaption class="caption">
-                        <p class="text-center"><?= $obj->name ?></p>
-                        <p><?= $obj->summary ?></p>
-                        <div>
-                            <form action="" method="post" class="formThumbnail">
-                                <input type="hidden" name="id" value="id"/>
-                                <input type="hidden" name="state" value="1"/>
-                                <button type="submit" class="btn btn-danger">J'ai</button>
-                            </form>
-                            <form action="" method="post" class="formThumbnail">
-                                <input type="hidden" name="id" value="id"/>
-                                <input type="hidden" name="state" value="2"/>
-                                <button type="submit" class="btn btn-danger">Je veux</button>
-                            </form>
-                        </div>
-                    </figcaption>
-                </figure>
+                <a href="#">
+                    <figure class="thumbnail">
+                        <img src="<?= $obj->cover->url ?>" class="image">
+                        <figcaption class="caption">
+                            <p class="text-center"><?= $obj->name ?></p>
+                            <p class="text"><?= $obj->summary ?></p>
+                            <div>
+                                <form action="" method="post" class="formThumbnail">
+                                    <input type="hidden" name="id" value="id"/>
+                                    <input type="hidden" name="state" value="1"/>
+                                    <button type="submit" class="btn btn-danger">J'ai</button>
+                                </form>
+                                <form action="" method="post" class="formThumbnail">
+                                    <input type="hidden" name="id" value="id"/>
+                                    <input type="hidden" name="state" value="2"/>
+                                    <button type="submit" class="btn btn-danger">Je veux</button>
+                                </form>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </a>
             </div>
             <?php
             $count++;
-            if ($count == 3) : ?>
+            if ($count == 4) : ?>
                 </div>
                 <?php
                 $count = 0;

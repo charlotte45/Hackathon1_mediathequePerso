@@ -88,7 +88,8 @@ if (!empty($_POST['user'])) {
                 <h4 class="panel-title">
                     <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                         <fieldset class="form-group">
-                            <legend class="inscription">INSCRIPTION</legend>
+                            <legend class="inscription">INSCRIPTION <i class="fa fa-caret-down" aria-hidden="true"></i>
+                            </legend>
                         </fieldset>
                     </a>
                 </h4>

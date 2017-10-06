@@ -115,11 +115,6 @@ body {
     border-radius: 15px;
 }
 
-
-.login .inscription:hover {
-    color: purple;
-}
-
 .category .image {
     height: 200px;
 }
@@ -152,8 +147,21 @@ body {
 
 .thumbnail .caption {
     color: white;
+    height: 200px;
 }
 
+.thumbnail .text {
+    overflow: auto;
+    height: 110px;
+}
+
+.annonce {
+    font-family: "dolce", sans-serif;
+    text-align: center;
+    margin-bottom: 60px;
+    color: white;
+    font-size: 2em;
+}
 /*-*-*-*-* LOGIN *-*-*-*-*/
 
 .center-block{

@@ -15,15 +15,15 @@ include 'header.php';
     </div>
 
     <div class="row">
-        <div class="col-md-6"><img src="assets/images/livres.png" alt="Livres" class="img-responsive shrink" />
+        <div class="col-md-6"><a href="books.php"><img src="assets/images/livres.png" alt="Livres" class="img-responsive shrink" /></a>
         </div>
-        <div class="col-md-6"><img src="assets/images/casque.png" alt="Musique" class="img-responsive shrink" />
+        <div class="col-md-6"><a href="#"><img src="assets/images/casque.png" alt="Musique" class="img-responsive shrink" /></a>
         </div>
     </div>
     <div class="row vignette">
-        <div class="col-md-6"><img src="assets/images/video.png" alt="Film" class="img-responsive shrink" />
+        <div class="col-md-6"><a href="movies.php"><img src="assets/images/video.png" alt="Film" class="img-responsive shrink" /></a>
         </div>
-        <div class="col-md-6"><img src="assets/images/manette.png" alt="Jeux" class="img-responsive shrink" />
+        <div class="col-md-6"><a href="games.php"><img src="assets/images/manette.png" alt="Jeux" class="img-responsive shrink" /></a>
         </div>
     </div>
 </div>
@@ -31,39 +31,5 @@ include 'header.php';
 <?php
 include 'footer.php';
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <?php
-        include 'footer.php';
-        ?>
->>>>>>> b71ac5174ccbf597be60310065516320baec84ad
-
-    </body>
+</body>
 </html>

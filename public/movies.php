@@ -8,8 +8,8 @@
 
 require_once 'api_init.php';
 
-if (!empty($_POST['search'])) {
-    $cleaned = htmlentities($_POST['search']);
+if (!empty($_GET['search'])) {
+    $cleaned = htmlentities($_GET['search']);
     $results = $api_movies->search($cleaned);
 
     var_dump($results);

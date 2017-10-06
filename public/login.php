@@ -16,7 +16,7 @@ if (!empty($_POST['user'])) {
     $userName = $_POST['user'];
     $userPass = $_POST['password'];
 
-    $query = 'SELECT * FROM user WHERE identifier=:identifier AND password=:password;';
+    $query = 'SELECT * FROM users WHERE identifier=:identifier AND password=:password;';
     $prep = $pdo->prepare($query);
     $prep->bindValue(':identifier', $userName);
     $prep->bindValue(':password', $userPass);
@@ -29,20 +29,24 @@ if (!empty($_POST['user'])) {
             && $value['password'] == $userPass) {
             $_SESSION['user'] = $userName;
             header('Location: index.php');
+            exit;
         }
     }
 } else if (!empty($_POST['new_user']) && !empty($_POST['new_password'])) {
     $userName = $_POST['new_user'];
     $userPass = $_POST['new_password'];
 
-    $query = "SELECT * FROM user WHERE identifier LIKE 'A%' AND password LIKE 'A%';";
+    $query = "SELECT * FROM users WHERE identifier LIKE 'A%' AND password LIKE 'A%';";
     $prep = $pdo->query($query);
     $result = $prep->fetchAll();
 
-    $sql = "INSERT INTO user (identifier, password) VALUES ('$userName', '$userPass')";
+    $sql = "INSERT INTO users (identifier, password) VALUES ('$userName', '$userPass')";
     $newRow = $pdo->exec($sql);
 
     $_SESSION['user'] = $userName;
+
+    header('Location: index.php');
+    exit;
 }
 ?>
 
@@ -99,9 +103,9 @@ if (!empty($_POST['user'])) {
                 <div class="panel-body">
                     <form action="" method="post">
                         <fieldset class="form-group">
-                            <input type="text" class="form-control" name="userInscription" id="userInscription"
+                            <input type="text" class="form-control" name="new_user" id="userInscription"
                                    placeholder="Entrer un nom d'utilisateur" value=""/>
-                            <input type="password" class="form-control" name="passwordInscription" id="passwordInscription"
+                            <input type="password" class="form-control" name="new_password" id="passwordInscription"
                                    placeholder="Entrer un mot de passe"  value=""/>
                             <button type="submit" class="btn">S'inscrire</button>
                         </fieldset>

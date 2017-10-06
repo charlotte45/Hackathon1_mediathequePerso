@@ -67,7 +67,7 @@ if (empty($_SESSION['user'])) {
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><?= empty($_SESSION['user']) ? '' : $_SESSION['user'] ?></a></li>
-                        <li><a href="#">Se déconnecter</a></li>
+                        <li><a href="logout.php">Se déconnecter</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </nav>

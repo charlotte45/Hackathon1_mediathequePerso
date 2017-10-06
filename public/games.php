@@ -7,6 +7,7 @@
  */
 
 require 'api_init.php';
+require_once '../src/functions.php';
 
 if (!empty($_GET['search'])) {
     $cleaned = htmlentities($_GET['search']);

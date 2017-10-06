@@ -92,7 +92,7 @@ if (!empty($_POST['user'])) {
                    placeholder="Entrer votre nom d'utilisateur" value=""/>
             <input type="password" class="form-control" name="password" id="password"
                    placeholder="Entrer votre mot de passe"  value=""/>
-            <button type="submit" class="btn">Se connecter</button>
+            <button type="submit" class="btn hoverPink">Se connecter</button>
         </fieldset>
     </form>
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -115,7 +115,7 @@ if (!empty($_POST['user'])) {
                                    placeholder="Entrer un nom d'utilisateur" value=""/>
                             <input type="password" class="form-control" name="new_password" id="passwordInscription"
                                    placeholder="Entrer un mot de passe"  value=""/>
-                            <button type="submit" class="btn">S'inscrire</button>
+                            <button type="submit" class="btn hoverPink">S'inscrire</button>
                         </fieldset>
                     </form>
                 </div>

@@ -70,7 +70,7 @@ if (empty($results)) {
                                         <input type="hidden" name="category" value="2"/>
                                         <input type="hidden" name="id" value="id"/>
                                         <input type="hidden" name="state" value="2"/>
-                                        <button type="submit" class="btn btn-danger">Je veux</button>
+                                        <button type="submit" class="btn btn-danger want">Je veux</button>
                                     </form>
                                 <?php endif; ?>
                             </div>

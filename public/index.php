@@ -6,7 +6,6 @@
  * Time: 16:38
  */
 include 'header.php';
-
 ?>
 
 <div class="container">
@@ -29,7 +28,9 @@ include 'header.php';
     </div>
 </div>
 
-
+<?php
+include 'footer.php';
+?>
 
 
 
@@ -62,6 +63,7 @@ include 'header.php';
         <?php
         include 'footer.php';
         ?>
+>>>>>>> b71ac5174ccbf597be60310065516320baec84ad
 
     </body>
 </html>

@@ -6,7 +6,11 @@
  * Time: 16:39
  */
 
+require 'connect.php';
+
 session_start();
+
+$pdo = new PDO(DSN, USER,PASS);
 
 if (empty($_SESSION['user'])) {
     header('Location: login.php');

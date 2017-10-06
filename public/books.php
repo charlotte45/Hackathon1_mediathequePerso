@@ -45,6 +45,7 @@ if (empty($results)) {
         $total = 12;
         $count = 0;
         foreach ($results->docs as $obj) :
+            $state = getStateFromIds($pdo, $obj->id, 1);
             if ($count == 0) : ?>
                 <div class="row">
             <?php endif; ?>
@@ -56,16 +57,22 @@ if (empty($results)) {
                             <p class="text-center"><?= property_exists($obj, 'title') ? $obj->title : '' ?></p>
                             <p class="text"><?= property_exists($obj, 'summary') ? $obj->summary : '' ?></p>
                             <div>
-                                <form action="" method="post" class="formThumbnail">
-                                    <input type="hidden" name="id" value="id"/>
-                                    <input type="hidden" name="state" value="1"/>
-                                    <button type="submit" class="btn btn-danger">J'ai</button>
-                                </form>
-                                <form action="" method="post" class="formThumbnail">
-                                    <input type="hidden" name="id" value="id"/>
-                                    <input type="hidden" name="state" value="2"/>
-                                    <button type="submit" class="btn btn-danger">Je veux</button>
-                                </form>
+                                <?php if ($state == 1 || $state == 0) : ?>
+                                    <form action="setstate.php" method="post" class="formThumbnail">
+                                        <input type="hidden" name="category" value="3"/>
+                                        <input type="hidden" name="id" value="id"/>
+                                        <input type="hidden" name="state" value="1"/>
+                                        <button type="submit" class="btn btn-danger">J'ai</button>
+                                    </form>
+                                <?php endif; ?>
+                                <?php if ($state == 2 || $state == 0) : ?>
+                                    <form action="setstate.php" method="post" class="formThumbnail">
+                                        <input type="hidden" name="category" value="3"/>
+                                        <input type="hidden" name="id" value="id"/>
+                                        <input type="hidden" name="state" value="2"/>
+                                        <button type="submit" class="btn btn-danger">Je veux</button>
+                                    </form>
+                                <?php endif; ?>
                             </div>
                         </figcaption>
                     </figure>

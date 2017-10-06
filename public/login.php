@@ -6,9 +6,14 @@
  * Time: 17:24
  */
 
+require 'connect.php';
+
 session_start();
 
-require 'connect.php';
+if (!empty($_SESSION['user'])) {
+    header('Location: index.php');
+}
+
 //Connection
 $pdo = new PDO(DSN, USER,PASS);
 
@@ -27,6 +32,8 @@ if (!empty($_POST['user'])) {
     foreach ($result as $value) {
         if ($value['identifier'] == $userName
             && $value['password'] == $userPass) {
+
+            $_SESSION['user_id'] = $value['id'];
             $_SESSION['user'] = $userName;
             header('Location: index.php');
             exit;
@@ -44,6 +51,7 @@ if (!empty($_POST['user'])) {
     $newRow = $pdo->exec($sql);
 
     $_SESSION['user'] = $userName;
+    $_SESSION['user_id'] = $newRow['id'];
 
     header('Location: index.php');
     exit;
@@ -72,7 +80,7 @@ if (!empty($_POST['user'])) {
         </head>
 
 <div class="container-fluid title">
-    <img src="assets/images/wildflix.png" alt="logo" class="logo img-responsive center-block" height="20%" width="20%"/>
+    <img src="assets/images/wildflix.png" alt="logo" class="logo img-responsive center-block appear" height="20%" width="20%"/>
     <h1>--- Votre médiathèque personnelle ---</h1>
 </div>
 

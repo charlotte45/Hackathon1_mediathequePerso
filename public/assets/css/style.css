@@ -75,8 +75,11 @@ body {
     text-align: center;
     color: white;
     padding-bottom: 20px;
-    font-family: "Open Sans", sans-serif;
+    font-family: "dolce", sans-serif;
 }
+
+.shrink { transition: all .2s ease-in-out; }
+.shrink:hover { transform: scale(0.9); }
 
 /*-*-*-*-* NAVBAR HEADER *-*-*-*-*/
 .navbar {
@@ -88,12 +91,30 @@ body {
 
 .navbar-brand {
     font-family: 'dolce';
-    font-size: 3em;
+    font-size: 4em;
 }
 
 .navbar-default .navbar-brand {
     color: white;
 }
+
+.navbar-default .navbar-nav>li>a {
+    color: white;
+}
+
+.navbar-form .form-control{
+    background-color: black;
+    border:none;
+    border-radius: 15px;
+    color: white;
+}
+
+.btn-default {
+    border: none;
+    background-color: gainsboro;
+    border-radius: 15px;
+}
+
 
 .login .inscription:hover {
     color: purple;
@@ -131,6 +152,12 @@ body {
 
 .thumbnail .caption {
     color: white;
+}
+
+/*-*-*-*-* LOGIN *-*-*-*-*/
+
+.center-block{
+    margin-top: 20px;
 }
 
 /*-*-*-*-* START MEDIA QUERIES *-*-*-*-*/

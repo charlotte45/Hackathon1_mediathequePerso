@@ -5,18 +5,37 @@
  * Date: 05/10/17
  * Time: 17:24
  */
-include 'header.php';
+
 require 'connect.php';
 //Connection
 $pdo = new PDO(DSN, USER,PASS);
 
 ?>
 
+    <!DOCTYPE html>
+    <html lang="fr">
+        <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+            <meta name="description" content="Page Index">
+            <title>WildFlix</title>
+
+            <!-- Bootstrap core CSS -->
+            <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
+            <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+            <!-- Font Awesome -->
+            <link href="assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+            <!-- Custom styles for this template -->
+            <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+        </head>
+
 <div class="container-fluid title">
-    <img src="logo.png" alt="logo" class="logo"/>
     <h1>--- Votre médiathèque personnelle ---</h1>
-    <img src="assets/images/wildflix.png" alt="logo" class="logo"/>
-    <p>--- Votre médiathèque personnelle ---</p>
+    <img src="assets/images/wildflix.png" alt="logo" class="logo img-responsive center-block" height="20%" width="20%"/>
 </div>
 
 <div class="container login">
@@ -32,25 +51,24 @@ $pdo = new PDO(DSN, USER,PASS);
     </form>
     <?php
     if (!empty($_POST['user'])) {
+        $userName = $_POST['user'];
+        $userPass = $_POST['password'];
 
-    }
-    $userName = $_POST['user'];
-    $userPass = $_POST['password'];
+        $query = 'SELECT * FROM user WHERE identifier=:identifier AND password=:password;';
+        $prep = $pdo->prepare($query);
+        $prep->bindValue(':identifier', $userName);
+        $prep->bindValue(':password', $userPass);
+        $prep->execute();
 
-    $query = 'SELECT * FROM user WHERE identifier=:identifier AND password=:password;';
-    $prep = $pdo->prepare($query);
-    $prep->bindValue(':identifier', $userName);
-    $prep->bindValue(':password', $userPass);
-    $prep->execute();
+        $result = $prep->fetchAll();
 
-    $result = $prep->fetchAll();
-
-    foreach ($result as $value) {
-        if ($value['identifier'] == $userName
-            && $value['password'] == $userPass) {
-            header('Location: index.php');
+        foreach ($result as $value) {
+            if ($value['identifier'] == $userName
+                && $value['password'] == $userPass) {
+                header('Location: index.php');
+            }
         }
-    } 
+    }
 ?>
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         <div class="panel panel-default">

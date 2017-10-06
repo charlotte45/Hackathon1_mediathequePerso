@@ -15,15 +15,15 @@ include 'header.php';
     </div>
 
     <div class="row">
-        <div class="col-md-6"><img src="assets/images/livres.png" alt="Livres" class="img-responsive" />
+        <div class="col-md-6"><img src="assets/images/livres.png" alt="Livres" class="img-responsive shrink" />
         </div>
-        <div class="col-md-6"><img src="assets/images/casque.png" alt="Musique" class="img-responsive" />
+        <div class="col-md-6"><img src="assets/images/casque.png" alt="Musique" class="img-responsive shrink" />
         </div>
     </div>
     <div class="row vignette">
-        <div class="col-md-6"><img src="assets/images/video.png" alt="Film" class="img-responsive" />
+        <div class="col-md-6"><img src="assets/images/video.png" alt="Film" class="img-responsive shrink" />
         </div>
-        <div class="col-md-6"><img src="assets/images/manette.png" alt="Jeux" class="img-responsive" />
+        <div class="col-md-6"><img src="assets/images/manette.png" alt="Jeux" class="img-responsive shrink" />
         </div>
     </div>
 </div>
